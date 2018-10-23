@@ -7,14 +7,11 @@ def oxford_comma(array)
     return array.join        #then just convert to string
   elsif array.count == 2 #2 elements, 
     array.insert(1, " and ")              #then insert 'and' between
-    return array.join  
-  elsif array.count >= 3 #3 elements 
-    array.each {|e| array << e + ", " }
-    array.insert(-2, " and ")
-    array.join
-    
+    return array.join
+  elsif array.count >= 3 
+    array[-1].insert(0, "and ") #this inserts "and" into the *element* at -1 index, not the array itself
+    return array.join(", ")
   end
-  
 end
   
   
